@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "users.apps.UsersConfig",
-    "tweets.apps.TweetsConfig"
+    "tweets.apps.TweetsConfig",
+    "common.apps.CommonConfig",
 ]
 
 MIDDLEWARE = [

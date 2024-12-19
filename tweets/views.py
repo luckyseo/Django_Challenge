@@ -18,10 +18,9 @@ def get_tweets(request):
 @api_view(["GET"])
 def db_tweets(request):
     # all_tweets = Tweet.objects.all()
-    if request.method == "GET":
-        all_tweets = Tweet.objects.all()
-        serializer = TweetSerializer(all_tweets, many=True)
-        return Response(serializer.data)
+    all_tweets = Tweet.objects.all()
+    serializer = TweetSerializer(all_tweets, many=True)
+    return Response(serializer.data)
 
 
 @api_view(["GET"])
@@ -31,9 +30,6 @@ def user_generated_Tweets(request, pk):
     except User.DoesNotExist:
         raise NotFound("User Not Found")
 
-    if request.method == "GET":
-        user_generated_tweets = (
-            user.tweets.all()
-        )  # Access user's tweets via related_name
-        serializer = TweetSerializer(user_generated_tweets, many=True)
-        return Response(serializer.data)
+    user_generated_tweets = user.tweets.all()  # Access user's tweets via related_name
+    serializer = TweetSerializer(user_generated_tweets, many=True)
+    return Response(serializer.data)

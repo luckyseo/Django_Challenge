@@ -22,4 +22,5 @@ from tweets import views
 urlpatterns = [
     # path("admin/", admin.site.urls),
     path("", views.get_tweets),
+    path("tweets/", include("tweets.urls")),
 ]

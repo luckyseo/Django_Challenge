@@ -19,8 +19,10 @@ from django.contrib import admin
 from django.urls import path, include
 from tweets import views
 
+
 urlpatterns = [
-    # path("admin/", admin.site.urls),
     path("", views.get_tweets),
+    path("admin/", admin.site.urls),
     path("tweets/", include("tweets.urls")),
+    path("users/", include("users.urls")),
 ]

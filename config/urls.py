@@ -21,8 +21,7 @@ from tweets import views
 
 
 urlpatterns = [
-    path("", views.get_tweets),
     path("admin/", admin.site.urls),
-    path("tweets/", include("tweets.urls")),
-    path("users/", include("users.urls")),
+    path("api/v1/tweets/", include("tweets.urls")),
+    path("api/v1/users/", include("users.urls")),
 ]

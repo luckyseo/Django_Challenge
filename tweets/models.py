@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import User
+
 
 # Create your models here.
 
@@ -14,7 +14,7 @@ class Generated_DateTime(models.Model):
 class Tweet(Generated_DateTime):
     payload = models.TextField(max_length=180)
     user = models.ForeignKey(
-        User,
+        "users.User",
         on_delete=models.CASCADE,
     )
     
@@ -23,11 +23,11 @@ class Tweet(Generated_DateTime):
 
 class Like(Generated_DateTime):
     user = models.ForeignKey(
-        User,
+        "users.User",
         on_delete=models.CASCADE,
     )
     tweet = models.ForeignKey(
-        Tweet, 
+        "tweets.Tweet", 
         on_delete=models.CASCADE,
     )
 

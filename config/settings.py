@@ -29,6 +29,9 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+THRID_PARTY_APPS=[
+    'rest_framework',
+]
 CUSTOM_APPS =[
     "users.apps.UsersConfig",
     "tweets.apps.TweetsConfig",
@@ -41,7 +44,7 @@ SYSTEM_APPS=[
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-INSTALLED_APPS = SYSTEM_APPS + CUSTOM_APPS
+INSTALLED_APPS = SYSTEM_APPS + CUSTOM_APPS + THRID_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

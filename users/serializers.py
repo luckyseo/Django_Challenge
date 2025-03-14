@@ -1,14 +1,8 @@
 from rest_framework import serializers
-
-class UsersSerializer(serializers.Serializer):
-    id=serializers.IntegerField()
-    first_name = serializers.CharField()
-    last_name = serializers.CharField()
-    email =serializers.EmailField()
+from .models import User
+class UsersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields ="__all__"
     #payload = serializers.CharField(source="tweets.payload",read_only=True)
 
-class UserSerializer(serializers.Serializer):
-    id=serializers.IntegerField()
-    first_name = serializers.CharField()
-    last_name = serializers.CharField()
-    email =serializers.EmailField()

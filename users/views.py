@@ -9,7 +9,7 @@ from tweets.serializers import TweetSerializer
 # Create your views here.
 
 class Users(APIView):
-    def get_objects(self,request):
+    def get(self,request):
         try:
             user = User.objects.all() #this is not json -> can't be displayed -> need serializer
             serializer = UsersSerializer(user,many=True)
@@ -17,6 +17,8 @@ class Users(APIView):
         except User.DoesNotExist:
             raise NotFound("No User")
     # user_tweets = user.tweets.all()
+
+class UsersDetails(APIView):
     def get(self,request,pk):
         try:
             user = User.objects.get(pk=pk)

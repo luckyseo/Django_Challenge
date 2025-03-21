@@ -11,14 +11,14 @@ class tweets(APIView):
     def get(self, request):
         tweets = Tweet.objects.all()
         serializer = TweetSerializer(tweets, many = True)
-        return Response({"ok":True,"tweets":serializer.data})
+        return Response(serializer.data)
     def post(self,request):
         serializer=TweetSerializer(self,data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
-            return Response(serializer.error,status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 class tweetsDetail(APIView):
     def get_object(self,pk):

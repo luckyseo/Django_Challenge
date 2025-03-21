@@ -7,9 +7,9 @@ from users.models import User
 #this is to practice where the user comes from
 class UsernameAuthentication(BaseAuthentication):
     def authenticate(self, request): #request : without user it's with cookies , headers...
-        print(request.META)
+        #print(request.META)
         username = request.headers.get('X_USERNAME')
-        print(username)
+       # print("username",username)
         if not username: #not logged in
             return None
         try:
